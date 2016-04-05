@@ -3,6 +3,7 @@ using System.Collections;
 
 public class playerController : MonoBehaviour {
     public float speed;
+    private int pickupCount = 0;
     private Rigidbody rb;
     void Start()
     {
@@ -25,6 +26,11 @@ public class playerController : MonoBehaviour {
     {
         if (other.gameObject.CompareTag("pick up"))
         {
+            pickupCount++;
+            if (pickupCount==3)
+            {
+                Application.LoadLevel("minigame2");
+            }
             other.gameObject.SetActive(false);
         }
     }
