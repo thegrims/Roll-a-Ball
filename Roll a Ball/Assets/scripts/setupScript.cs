@@ -9,8 +9,11 @@ public class setupScript : MonoBehaviour {
         for (int z = -8; z < 10; z+=2)
         {
             for (int x = -8; x < 10; x+=2)
-            {   //if (rnd.Next(1, 13);)
-                Instantiate(pickUp, new Vector3(x,0.5f, z), Quaternion.identity);
+            {
+                if (Random.value>0.5f)
+                {
+                    Instantiate(pickUp, new Vector3(x, 0.5f, z), Quaternion.identity);
+                }
             }
         }
     }
