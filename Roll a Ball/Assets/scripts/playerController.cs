@@ -27,7 +27,7 @@ public class playerController : MonoBehaviour {
         if (other.gameObject.CompareTag("pick up"))
         {
             pickupCount++;
-            if (pickupCount==3)
+            if (pickupCount==10)
             {
                 Application.LoadLevel("minigame2");
             }
