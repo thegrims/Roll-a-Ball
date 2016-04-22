@@ -9,6 +9,8 @@ public class setupScript : MonoBehaviour {
     //do random cell generation and backtracking
     void Start ()
     {
+        int finishpointX = 0;
+        int finishpointy = 0;
         var numbers = new int[50, 50];
         for (int z = 0; z < xmapsize; z++)
         {
@@ -43,6 +45,11 @@ public class setupScript : MonoBehaviour {
                 if (numbers[z,x]==1)
                 {
                     Instantiate(pickUp, new Vector3(x, -5, z), Quaternion.identity);
+                    if (z+x>finishpointX+finishpointy)
+                    {
+                        finishpointX = z;
+                        finishpointy = x;
+                    }
                 }
                 if (Random.value<0.5f)
                 {
@@ -50,7 +57,8 @@ public class setupScript : MonoBehaviour {
                 }
             }
         }
-    }
+        Instantiate(pickUp2, new Vector3(finishpointy-.5f, 0.5f,finishpointX-.5f), Quaternion.identity);
+}
 	
 	// Update is called once per frame
 	void Update () {
