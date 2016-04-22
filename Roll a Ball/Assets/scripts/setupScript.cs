@@ -11,7 +11,7 @@ public class setupScript : MonoBehaviour {
     {
         int finishpointX = 0;
         int finishpointy = 0;
-        var numbers = new int[50, 50];
+        var numbers = new int[xmapsize, zmapsize];
         for (int z = 0; z < xmapsize; z++)
         {
             for (int x = 0; x < zmapsize; x++)

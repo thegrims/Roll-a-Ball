@@ -1359,8 +1359,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickUp: {fileID: 654887993}
   pickUp2: {fileID: 189276, guid: 19e17d615bacb1140b6d3135f96cc529, type: 2}
-  xmapsize: 40
-  zmapsize: 40
+  xmapsize: 200
+  zmapsize: 200
 --- !u!4 &1630358712
 Transform:
   m_ObjectHideFlags: 0
