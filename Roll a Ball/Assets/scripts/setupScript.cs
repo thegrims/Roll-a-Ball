@@ -3,17 +3,50 @@ using System.Collections;
 
 public class setupScript : MonoBehaviour {
     public GameObject pickUp;
-	// Use this for initialization
+    public GameObject pickUp2;
+    public int xmapsize, zmapsize;
+    // Use this for initialization
     //do random cell generation and backtracking
-	void Start ()
+    void Start ()
     {
-        for (int z = -50; z < 50; z++)
+        var numbers = new int[50, 50];
+        for (int z = 0; z < xmapsize; z++)
         {
-            for (int x = -50; x < 50; x++)
+            for (int x = 0; x < zmapsize; x++)
             {
-                if (Random.value>0.5f)
+                numbers[z,x]=1;
+            }
+        }
+        for (int z = 0; z < xmapsize; z++)
+        {
+            for (int x = 0; x < zmapsize; x++)
+            {
+                if (Random.value > 0.9f)
                 {
-                    Instantiate(pickUp, new Vector3(x, 0, z), Quaternion.identity);
+                    for (int y = z; y < z+3; y++)
+                    {
+                        for (int v = x; v < x+3; v++)
+                        {
+                            if (y<xmapsize && v<zmapsize)
+                            {
+                                numbers[y, v] = 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        for (int z = 0; z < 50; z++)
+        {
+            for (int x = 0; x < 50; x++)
+            {
+                if (numbers[z,x]==1)
+                {
+                    Instantiate(pickUp, new Vector3(x, -5, z), Quaternion.identity);
+                }
+                if (Random.value<0.5f)
+                {
+                 //   Instantiate(pickUp2, new Vector3(x, 0, z), Quaternion.identity);
                 }
             }
         }
