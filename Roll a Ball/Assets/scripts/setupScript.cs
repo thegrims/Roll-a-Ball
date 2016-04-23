@@ -5,13 +5,21 @@ public class setupScript : MonoBehaviour {
     public GameObject pickUp;
     public GameObject pickUp2;
     public int xmapsize, zmapsize;
+    public int holesizeX, holesizeY;
+    
     // Use this for initialization
     //do random cell generation and backtracking
     void Start ()
     {
-        int finishpointX = 0;
-        int finishpointy = 0;
-        var numbers = new int[xmapsize, zmapsize];
+        var finishpointY = new int[4];
+        var finishpointX = new int[4];
+        for (int z = 0; z < 4; z++)
+        {
+            finishpointX[z] = 0;
+            finishpointY[z] = 0;
+        }
+
+            var numbers = new int[xmapsize, zmapsize];
         for (int z = 0; z < xmapsize; z++)
         {
             for (int x = 0; x < zmapsize; x++)
@@ -25,9 +33,9 @@ public class setupScript : MonoBehaviour {
             {
                 if (Random.value > 0.9f)
                 {
-                    for (int y = z; y < z+3; y++)
+                    for (int y = z; y < z+holesizeX; y++)
                     {
-                        for (int v = x; v < x+3; v++)
+                        for (int v = x; v < x+holesizeY; v++)
                         {
                             if (y<xmapsize && v<zmapsize)
                             {
@@ -44,21 +52,48 @@ public class setupScript : MonoBehaviour {
             {
                 if (numbers[z,x]==1)
                 {
-                    Instantiate(pickUp, new Vector3(x, -5, z), Quaternion.identity);
-                    if (z+x>finishpointX+finishpointy)
+                    Instantiate(pickUp, new Vector3(x-25, -5, z-25), Quaternion.identity);
+                    if (z+x>finishpointX[0]+finishpointY[0])
                     {
-                        finishpointX = z;
-                        finishpointy = x;
+                        finishpointX[0] = z;
+                        finishpointY[0] = x;
+                    }
+                    if (z + x < finishpointX[1] + finishpointY[1])
+                    {
+                        finishpointX[1] = z;
+                        finishpointY[1] = x;
+                    }
+                    if (z - x < finishpointX[2] - finishpointY[2])
+                    {
+                        finishpointX[2] = z;
+                        finishpointY[2] = x;
+                    }
+                    if (z - x > finishpointX[3] - finishpointY[3])
+                    {
+                        finishpointX[3] = z;
+                        finishpointY[3] = x;
+                    }
+
+                }
+                if (playerController.winTrigger == true)
+                {
+                    Debug.Log("win");
+                    if (numbers[z, x] == 1)
+                    {
+                        pickUp.transform.position = new Vector3(0,-20, 0);
                     }
                 }
-                if (Random.value<0.5f)
-                {
+                //if (Random.value<0.5f)
+                //{
                  //   Instantiate(pickUp2, new Vector3(x, 0, z), Quaternion.identity);
-                }
+                //}
             }
         }
-        Instantiate(pickUp2, new Vector3(finishpointy-.5f, 0.5f,finishpointX-.5f), Quaternion.identity);
-}
+        Instantiate(pickUp2, new Vector3(finishpointY[0]-25.5f, 0.5f,finishpointX[0]-25.5f), Quaternion.identity);
+        Instantiate(pickUp2, new Vector3(finishpointY[1] - 25.5f, 0.5f, finishpointX[1] - 25.5f), Quaternion.identity);
+        Instantiate(pickUp2, new Vector3(finishpointY[2] - 25.5f, 0.5f, finishpointX[2] - 25.5f), Quaternion.identity);
+        Instantiate(pickUp2, new Vector3(finishpointY[3] - 25.5f, 0.5f, finishpointX[3] - 25.5f), Quaternion.identity);
+    }
 	
 	// Update is called once per frame
 	void Update () {

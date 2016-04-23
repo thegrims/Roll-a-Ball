@@ -7,6 +7,8 @@ public class playerController : MonoBehaviour {
     private int pickupCount = 0;
     private Rigidbody rb;
     bool jumping = false;
+    public static bool winTrigger = false;
+
     void Start()
     {
 
@@ -15,10 +17,7 @@ public class playerController : MonoBehaviour {
     void Update ()
     {
         //updates after every frame of movement
-        if (Input.GetKeyDown("space"))
-        {
-           // transform.Translate(Vector3.up * 260 * Time.deltaTime, Space.World);
-        }
+        
     }
     void FixedUpdate ()
     {
@@ -39,9 +38,10 @@ public class playerController : MonoBehaviour {
         if (other.gameObject.CompareTag("pick up"))
         {
             pickupCount++;
-            if (pickupCount==10)
+            if (pickupCount==1)
             {
-                Application.LoadLevel("minigame2");
+                winTrigger = true;
+                //Application.LoadLevel("minigame2");
             }
             other.gameObject.SetActive(false);
         }
