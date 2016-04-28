@@ -81,14 +81,14 @@ public class setupScript : MonoBehaviour {
                     }
 
                 }
-                if (playerController.winTrigger == true)
-                {
-                    Debug.Log("win");
+                //if (playerController.winTrigger == true)
+                //{
+                //    Debug.Log("win");
                     if (numbers[z, x] == 1)
                     {
                         pickUp.transform.position = new Vector3(0,-20, 0);
                     }
-                }
+               // }
                 //if (Random.value<0.5f)
                 //{
                  //   Instantiate(pickUp2, new Vector3(x, 0, z), Quaternion.identity);

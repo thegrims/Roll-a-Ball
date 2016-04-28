@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class playerController : MonoBehaviour {
     public float speed;
@@ -7,11 +8,12 @@ public class playerController : MonoBehaviour {
     private int pickupCount = 0;
     private Rigidbody rb;
     bool jumping = false;
-    public static bool winTrigger = false;
+    public Text countText;
+    //public static bool winTrigger = false;
 
     void Start()
     {
-
+        SetCountText();
         rb = GetComponent<Rigidbody>();
     }
     void Update ()
@@ -38,12 +40,16 @@ public class playerController : MonoBehaviour {
         if (other.gameObject.CompareTag("pick up"))
         {
             pickupCount++;
-            if (pickupCount==1)
-            {
-                winTrigger = true;
-                //Application.LoadLevel("minigame2");
-            }
+            SetCountText();
             other.gameObject.SetActive(false);
+        }
+    }
+    void SetCountText()
+    {
+        countText.text = "Count: " + pickupCount.ToString();
+        if (pickupCount >= 4)
+        {
+            //winText.text = "You Win!";
         }
     }
 }
