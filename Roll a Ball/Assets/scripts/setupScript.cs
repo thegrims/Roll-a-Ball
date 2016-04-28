@@ -5,12 +5,18 @@ public class setupScript : MonoBehaviour {
     public GameObject pickUp;
     public GameObject pickUp2;
     public int xmapsize, zmapsize;
-    public int holesizeX, holesizeY;
+    public float holesizeX, holesizeY;
     
+    float holeProb;
     // Use this for initialization
     //do random cell generation and backtracking
     void Start ()
     {
+        holesizeX = Random.Range(2,6);
+        holesizeY = Random.Range(2, 6);
+        holeProb = holesizeX/150+holesizeY/150+.9f;
+        Debug.Log(holesizeX); Debug.Log(holesizeY); Debug.Log(holeProb);
+
         var finishpointY = new int[4];
         var finishpointX = new int[4];
         for (int z = 0; z < 4; z++)
@@ -19,7 +25,8 @@ public class setupScript : MonoBehaviour {
             finishpointY[z] = 0;
         }
 
-            var numbers = new int[xmapsize, zmapsize];
+        var numbers = new int[xmapsize, zmapsize];
+
         for (int z = 0; z < xmapsize; z++)
         {
             for (int x = 0; x < zmapsize; x++)
@@ -46,13 +53,13 @@ public class setupScript : MonoBehaviour {
                 }
             }
         }
-        for (int z = 0; z < 50; z++)
+        for (int z = 0; z < xmapsize; z++)
         {
-            for (int x = 0; x < 50; x++)
+            for (int x = 0; x < zmapsize; x++)
             {
                 if (numbers[z,x]==1)
                 {
-                    Instantiate(pickUp, new Vector3(x-25, -5, z-25), Quaternion.identity);
+                    Instantiate(pickUp, new Vector3(x-xmapsize/2, -5, z-zmapsize/2), Quaternion.identity);
                     if (z+x>finishpointX[0]+finishpointY[0])
                     {
                         finishpointX[0] = z;

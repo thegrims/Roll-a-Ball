@@ -1365,8 +1365,8 @@ MonoBehaviour:
   pickUp2: {fileID: 189276, guid: 19e17d615bacb1140b6d3135f96cc529, type: 2}
   xmapsize: 200
   zmapsize: 200
-  holesizeX: 3
-  holesizeY: 3
+  holesizeX: 6
+  holesizeY: 6
 --- !u!4 &1630358712
 Transform:
   m_ObjectHideFlags: 0
