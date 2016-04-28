@@ -1105,7 +1105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  jumpSpeed: 4
+  jumpSpeed: 10
 --- !u!54 &1300676478
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1114,7 +1114,7 @@ Rigidbody:
   m_GameObject: {fileID: 1300676476}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: 0.5
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -1363,10 +1363,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickUp: {fileID: 189498, guid: ae2ee7fe961625c4cb799a568d9d73a8, type: 2}
   pickUp2: {fileID: 189276, guid: 19e17d615bacb1140b6d3135f96cc529, type: 2}
-  xmapsize: 200
-  zmapsize: 200
+  xmapsize: 50
+  zmapsize: 50
   holesizeX: 6
   holesizeY: 6
+  holeProb: 0.98
 --- !u!4 &1630358712
 Transform:
   m_ObjectHideFlags: 0

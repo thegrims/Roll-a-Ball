@@ -6,15 +6,14 @@ public class setupScript : MonoBehaviour {
     public GameObject pickUp2;
     public int xmapsize, zmapsize;
     public float holesizeX, holesizeY;
-    
-    float holeProb;
+    public float holeProb;
     // Use this for initialization
     //do random cell generation and backtracking
     void Start ()
     {
         holesizeX = Random.Range(2,6);
         holesizeY = Random.Range(2, 6);
-        holeProb = holesizeX/150+holesizeY/150+.9f;
+        holeProb = (holesizeX-2)/100+(holesizeY-2)/100+.9f;
         Debug.Log(holesizeX); Debug.Log(holesizeY); Debug.Log(holeProb);
 
         var finishpointY = new int[4];
@@ -38,7 +37,7 @@ public class setupScript : MonoBehaviour {
         {
             for (int x = 0; x < zmapsize; x++)
             {
-                if (Random.value > 0.9f)
+                if (Random.value > holeProb)
                 {
                     for (int y = z; y < z+holesizeX; y++)
                     {
@@ -96,10 +95,10 @@ public class setupScript : MonoBehaviour {
                 //}
             }
         }
-        Instantiate(pickUp2, new Vector3(finishpointY[0]-25.5f, 0.5f,finishpointX[0]-25.5f), Quaternion.identity);
-        Instantiate(pickUp2, new Vector3(finishpointY[1] - 25.5f, 0.5f, finishpointX[1] - 25.5f), Quaternion.identity);
-        Instantiate(pickUp2, new Vector3(finishpointY[2] - 25.5f, 0.5f, finishpointX[2] - 25.5f), Quaternion.identity);
-        Instantiate(pickUp2, new Vector3(finishpointY[3] - 25.5f, 0.5f, finishpointX[3] - 25.5f), Quaternion.identity);
+        Instantiate(pickUp2, new Vector3(finishpointY[0] - xmapsize / 2 - .5f, 0.5f,finishpointX[0]- zmapsize / 2-.5f), Quaternion.identity);
+        Instantiate(pickUp2, new Vector3(finishpointY[1] - xmapsize / 2 - .5f, 0.5f, finishpointX[1] - zmapsize / 2-.5f), Quaternion.identity);
+        Instantiate(pickUp2, new Vector3(finishpointY[2] - xmapsize / 2 - .5f, 0.5f, finishpointX[2] - zmapsize / 2-.5f), Quaternion.identity);
+        Instantiate(pickUp2, new Vector3(finishpointY[3] - xmapsize / 2 - .5f, 0.5f, finishpointX[3] - zmapsize / 2-.5f), Quaternion.identity);
     }
 	
 	// Update is called once per frame
