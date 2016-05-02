@@ -13,6 +13,7 @@ public class playerController : MonoBehaviour {
 
     void Start()
     {
+        countText.GetComponent<CanvasRenderer>().SetAlpha(0.5f);
         SetCountText();
         rb = GetComponent<Rigidbody>();
     }
@@ -46,7 +47,7 @@ public class playerController : MonoBehaviour {
     }
     void SetCountText()
     {
-        countText.text = "Count: " + pickupCount.ToString();
+        countText.text = "SCORE: " + pickupCount.ToString();
         if (pickupCount >= 4)
         {
             //winText.text = "You Win!";
