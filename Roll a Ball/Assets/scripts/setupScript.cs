@@ -7,7 +7,7 @@ public class setupScript : MonoBehaviour {
     public int xmapsize, zmapsize;
     public float holesizeX, holesizeY;
     public float holeProb;
-    int holetype;
+   // int holetype;
     // Use this for initialization
     //do random cell generation and backtracking
     void Start ()
@@ -15,37 +15,32 @@ public class setupScript : MonoBehaviour {
         holesizeX = Random.Range(2,6);
         holesizeY = Random.Range(2, 6);
         holeProb = (holesizeX-2)/100+(holesizeY-2)/100+.9f;
-        Debug.Log(holesizeX); Debug.Log(holesizeY); Debug.Log(holeProb);
-        holetype = Random.Range(0, 2);
+        //Debug.Log(holesizeX); Debug.Log(holesizeY); Debug.Log(holeProb);
+        //holetype = Random.Range(0, 2);
         var finishpointY = new int[4];
         var finishpointX = new int[4];
-        //for (int z = 0; z < 3; z++)
-        //{
-        //    finishpointX[z] = xmapsize;
-        //   finishpointY[z] = zmapsize;
-        //}
-        finishpointX[0] = 0;
-        finishpointY[0] = 0;
-        finishpointX[1] = xmapsize;
-        finishpointY[1] = zmapsize;
-        finishpointX[2] = 0;
-        finishpointY[2] = 0;
-        finishpointX[3] = 0;
-        finishpointY[3] = 0;
+        for (int z = 0; z < 3; z++)
+        {
+            finishpointX[z] = 0;
+            finishpointY[z] = 0;
+        }
+        finishpointX[3] = xmapsize;
+        finishpointY[3] = zmapsize;
+       
         var numbers = new int[xmapsize, zmapsize];
 
         for (int z = 0; z < xmapsize; z++)
         {
             for (int x = 0; x < zmapsize; x++)
             {
-                if (holetype==0)
+                //if (holetype==0)
                 {
                     numbers[z, x] = 0;
                 }
-                else
-                {
-                    numbers[z, x] = 1;
-                }
+                //else
+                //{
+                //    numbers[z, x] = 1;
+                //}
             }
         }
         for (int z = 0; z < xmapsize; z++)
@@ -61,14 +56,14 @@ public class setupScript : MonoBehaviour {
                             if (y<xmapsize && v<zmapsize)
                             {
                                
-                                if (holetype == 0)
-                                {
+                                //if (holetype == 0)
+                                //{
                                     numbers[y, v] = 1;
-                                }
-                                else
-                                {
-                                    numbers[y, v] = 0;
-                                }
+                                //}
+                                //else
+                                //{
+                                //    numbers[y, v] = 0;
+                                //}
                             }
                         }
                     }
@@ -87,35 +82,31 @@ public class setupScript : MonoBehaviour {
                         finishpointX[0] = z;
                         finishpointY[0] = x;
                     }
-                    if ((z + x) < (finishpointX[1] + finishpointY[1]))
+                    if ((z + x) < (finishpointX[3] + finishpointY[3]))
                     {
-                        finishpointX[1] = z;
-                        finishpointY[1] = x;
+                        finishpointX[3] = z;
+                        finishpointY[3] = x;
                     }
                     if ((z - x) < (finishpointX[2] - finishpointY[2]))
                     {
                         finishpointX[2] = z;
                         finishpointY[2] = x;
                     }
-                    if ((z - x) > (finishpointX[3] - finishpointY[3]))
+                    if ((z - x) > (finishpointX[1] - finishpointY[1]))
                     {
-                        finishpointX[3] = z;
-                        finishpointY[3] = x;
+                        finishpointX[1] = z;
+                        finishpointY[1] = x;
                     }
 
                 }
                 //if (playerController.winTrigger == true)
                 //{
                 //    Debug.Log("win");
-                    if (numbers[z, x] == 1)
-                    {
-                        pickUp.transform.position = new Vector3(0,-20, 0);
-                    }
+                    //if (numbers[z, x] == 1)
+                    //{
+                    //    pickUp.transform.position = new Vector3(0,-20, 0);
+                    //}
                // }
-                //if (Random.value<0.5f)
-                //{
-                 //   Instantiate(pickUp2, new Vector3(x, 0, z), Quaternion.identity);
-                //}
             }
         }
         Instantiate(pickUp2, new Vector3(finishpointY[0] - xmapsize / 2 - .5f, 0.5f, finishpointX[0] - zmapsize / 2-.5f), Quaternion.identity);
