@@ -7,6 +7,7 @@ public class setupScript : MonoBehaviour {
     public int xmapsize, zmapsize;
     public float holesizeX, holesizeY;
     public float holeProb;
+    int holetype;
     // Use this for initialization
     //do random cell generation and backtracking
     void Start ()
@@ -15,22 +16,36 @@ public class setupScript : MonoBehaviour {
         holesizeY = Random.Range(2, 6);
         holeProb = (holesizeX-2)/100+(holesizeY-2)/100+.9f;
         Debug.Log(holesizeX); Debug.Log(holesizeY); Debug.Log(holeProb);
-
+        holetype = Random.Range(0, 2);
         var finishpointY = new int[4];
         var finishpointX = new int[4];
-        for (int z = 0; z < 4; z++)
-        {
-            finishpointX[z] = 0;
-            finishpointY[z] = 0;
-        }
-
+        //for (int z = 0; z < 3; z++)
+        //{
+        //    finishpointX[z] = xmapsize;
+        //   finishpointY[z] = zmapsize;
+        //}
+        finishpointX[0] = 0;
+        finishpointY[0] = 0;
+        finishpointX[1] = xmapsize;
+        finishpointY[1] = zmapsize;
+        finishpointX[2] = 0;
+        finishpointY[2] = 0;
+        finishpointX[3] = 0;
+        finishpointY[3] = 0;
         var numbers = new int[xmapsize, zmapsize];
 
         for (int z = 0; z < xmapsize; z++)
         {
             for (int x = 0; x < zmapsize; x++)
             {
-                numbers[z,x]=1;
+                if (holetype==0)
+                {
+                    numbers[z, x] = 0;
+                }
+                else
+                {
+                    numbers[z, x] = 1;
+                }
             }
         }
         for (int z = 0; z < xmapsize; z++)
@@ -41,11 +56,19 @@ public class setupScript : MonoBehaviour {
                 {
                     for (int y = z; y < z+holesizeX; y++)
                     {
-                        for (int v = x; v < x+holesizeY; v++)
+                        for (int v = x; v < x+holesizeX; v++)
                         {
                             if (y<xmapsize && v<zmapsize)
                             {
-                                numbers[y, v] = 0;
+                               
+                                if (holetype == 0)
+                                {
+                                    numbers[y, v] = 1;
+                                }
+                                else
+                                {
+                                    numbers[y, v] = 0;
+                                }
                             }
                         }
                     }
@@ -59,22 +82,22 @@ public class setupScript : MonoBehaviour {
                 if (numbers[z,x]==1)
                 {
                     Instantiate(pickUp, new Vector3(x-xmapsize/2, -5, z-zmapsize/2), Quaternion.identity);
-                    if (z+x>finishpointX[0]+finishpointY[0])
+                    if ((z + x) > (finishpointX[0] + finishpointY[0]))
                     {
                         finishpointX[0] = z;
                         finishpointY[0] = x;
                     }
-                    if (z + x < finishpointX[1] + finishpointY[1])
+                    if ((z + x) < (finishpointX[1] + finishpointY[1]))
                     {
                         finishpointX[1] = z;
                         finishpointY[1] = x;
                     }
-                    if (z - x < finishpointX[2] - finishpointY[2])
+                    if ((z - x) < (finishpointX[2] - finishpointY[2]))
                     {
                         finishpointX[2] = z;
                         finishpointY[2] = x;
                     }
-                    if (z - x > finishpointX[3] - finishpointY[3])
+                    if ((z - x) > (finishpointX[3] - finishpointY[3]))
                     {
                         finishpointX[3] = z;
                         finishpointY[3] = x;
@@ -95,7 +118,7 @@ public class setupScript : MonoBehaviour {
                 //}
             }
         }
-        Instantiate(pickUp2, new Vector3(finishpointY[0] - xmapsize / 2 - .5f, 0.5f,finishpointX[0]- zmapsize / 2-.5f), Quaternion.identity);
+        Instantiate(pickUp2, new Vector3(finishpointY[0] - xmapsize / 2 - .5f, 0.5f, finishpointX[0] - zmapsize / 2-.5f), Quaternion.identity);
         Instantiate(pickUp2, new Vector3(finishpointY[1] - xmapsize / 2 - .5f, 0.5f, finishpointX[1] - zmapsize / 2-.5f), Quaternion.identity);
         Instantiate(pickUp2, new Vector3(finishpointY[2] - xmapsize / 2 - .5f, 0.5f, finishpointX[2] - zmapsize / 2-.5f), Quaternion.identity);
         Instantiate(pickUp2, new Vector3(finishpointY[3] - xmapsize / 2 - .5f, 0.5f, finishpointX[3] - zmapsize / 2-.5f), Quaternion.identity);
