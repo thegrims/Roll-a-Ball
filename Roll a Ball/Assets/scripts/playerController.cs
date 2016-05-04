@@ -30,10 +30,11 @@ public class playerController : MonoBehaviour {
 
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
         rb.AddForce(movement*speed);
-        if (Input.GetKeyDown("space")&& rb.position.y<.60 && rb.position.y>.40)
+        /*if (Input.GetKeyDown("space")&& jumping==false)
         {
             rb.AddForce(new Vector3(0, jumpSpeed, 0), ForceMode.Impulse);
-        }
+           jumping = true;
+        }*/
 
     }
     void OnTriggerEnter(Collider other)
@@ -43,6 +44,17 @@ public class playerController : MonoBehaviour {
             pickupCount++;
             SetCountText();
             other.gameObject.SetActive(false);
+        }
+    }
+    void OnCollisionEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("ground"))
+        {
+            if (Input.GetKeyDown("space") && jumping == false)
+            {
+                rb.AddForce(new Vector3(0, jumpSpeed, 0), ForceMode.Impulse);
+            }
+            // jumping = false;
         }
     }
     void SetCountText()
