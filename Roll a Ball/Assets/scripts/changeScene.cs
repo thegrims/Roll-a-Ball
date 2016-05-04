@@ -8,8 +8,10 @@ public class changeScene : MonoBehaviour {
     public void ChangeToScene(int scenetochangeto)
     {
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        //SceneManager.LoadScene(scenetochangeto, SceneManager.mode = LoadSceneMode.Single);
         //button.CrossFadeAlpha(1f, .1f, false);
+        Application.LoadLevel("minigame2");
     }
 	
 	// Update is called once per frame
