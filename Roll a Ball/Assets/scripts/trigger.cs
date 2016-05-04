@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using UnityEngine.SceneManagement;
 public class trigger : MonoBehaviour {
 
 	// Use this for initialization
@@ -16,7 +16,7 @@ public class trigger : MonoBehaviour {
     {
         if (other.gameObject.CompareTag("ball"))
         {
-            Application.LoadLevel(Application.loadedLevel);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             //SceneManager.LoadScene()
         }
     }

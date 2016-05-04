@@ -31,9 +31,10 @@ public class playerController : MonoBehaviour {
                 rb.AddForce(new Vector3(0, jumpSpeed, 0), ForceMode.Impulse);
                 //}
             }
+            jumping = true;
             //jumping = true; rb.position.y < .60 && rb.position.y > .40
         }
-        jumping = true;
+        
     }
     void FixedUpdate ()
     {

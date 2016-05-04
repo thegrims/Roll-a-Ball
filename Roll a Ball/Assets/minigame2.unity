@@ -200,14 +200,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 6427120, guid: ae2ee7fe961625c4cb799a568d9d73a8, type: 2}
-      propertyPath: m_Convex
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6427120, guid: ae2ee7fe961625c4cb799a568d9d73a8, type: 2}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ae2ee7fe961625c4cb799a568d9d73a8, type: 2}
   m_IsPrefabParent: 0
@@ -1468,7 +1460,7 @@ Transform:
   m_GameObject: {fileID: 1300676476}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 8, z: 0}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -1913,8 +1905,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickUp: {fileID: 189498, guid: ae2ee7fe961625c4cb799a568d9d73a8, type: 2}
   pickUp2: {fileID: 189276, guid: 19e17d615bacb1140b6d3135f96cc529, type: 2}
-  xmapsize: 50
-  zmapsize: 50
+  xmapsize: 100
+  zmapsize: 100
   holesizeX: 6
   holesizeY: 6
   holeProb: 0.98
