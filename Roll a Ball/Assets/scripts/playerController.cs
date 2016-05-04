@@ -20,7 +20,20 @@ public class playerController : MonoBehaviour {
     void Update ()
     {
         //updates after every frame of movement
-        
+        if (Input.GetKeyDown("space") && jumping == false)
+        {
+            //RaycastHit hit = new RaycastHit();
+            //if (Physics.Raycast(transform.position, -Vector3.up, 1))
+            {
+                //Debug.Log(hit.distance);
+                //if(hit.distance==0)
+                //{
+                rb.AddForce(new Vector3(0, jumpSpeed, 0), ForceMode.Impulse);
+                //}
+            }
+            //jumping = true; rb.position.y < .60 && rb.position.y > .40
+        }
+        jumping = true;
     }
     void FixedUpdate ()
     {
@@ -30,11 +43,7 @@ public class playerController : MonoBehaviour {
 
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
         rb.AddForce(movement*speed);
-        /*if (Input.GetKeyDown("space")&& jumping==false)
-        {
-            rb.AddForce(new Vector3(0, jumpSpeed, 0), ForceMode.Impulse);
-           jumping = true;
-        }*/
+        
 
     }
     void OnTriggerEnter(Collider other)
@@ -46,17 +55,35 @@ public class playerController : MonoBehaviour {
             other.gameObject.SetActive(false);
         }
     }
-    void OnCollisionEnter(Collider other)
+    void OnCollisionStay()
     {
-        if (other.gameObject.CompareTag("ground"))
+        jumping = false;
+    }
+    /*void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("ground"))
         {
-            if (Input.GetKeyDown("space") && jumping == false)
+            //Debug.Log("test1");
+            if (Input.GetKeyDown("space"))
             {
                 rb.AddForce(new Vector3(0, jumpSpeed, 0), ForceMode.Impulse);
             }
-            // jumping = false;
+            jumping = false;
         }
     }
+    void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("ground"))
+        {
+            //Debug.Log("test1");
+            /*if (Input.GetKeyDown("space"))
+            {
+                rb.AddForce(new Vector3(0, jumpSpeed, 0), ForceMode.Impulse);
+            }
+            jumping = true;
+        }
+    }*/
+
     void SetCountText()
     {
         countText.text = "SCORE: " + pickupCount.ToString();

@@ -12,6 +12,7 @@ public class setupScript : MonoBehaviour {
     //do random cell generation and backtracking
     void Start ()
     {
+
         holesizeX = Random.Range(4,7);
         holesizeY = Random.Range(4, 7);
         //holeProb = (holesizeX-2)/100+(holesizeY-2)/100+.9f;
