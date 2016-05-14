@@ -13,7 +13,7 @@ public class playerController : MonoBehaviour {
 
     void Start()
     {
-        countText.GetComponent<CanvasRenderer>().SetAlpha(0.5f);
+        //countText.GetComponent<CanvasRenderer>().SetAlpha(0.5f);
         SetCountText();
         rb = GetComponent<Rigidbody>();
     }

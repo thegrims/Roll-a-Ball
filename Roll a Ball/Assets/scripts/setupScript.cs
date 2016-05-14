@@ -2,7 +2,9 @@
 using System.Collections;
 
 public class setupScript : MonoBehaviour {
-    public GameObject pickUp;
+    public GameObject floorNode;
+    public GameObject floorPathX;
+    public GameObject floorPathY;
     public GameObject pickUp2;
     public int xmapsize, zmapsize;
     public float holesizeX, holesizeY;
@@ -13,8 +15,8 @@ public class setupScript : MonoBehaviour {
     void Start ()
     {
 
-        holesizeX = Random.Range(4,7);
-        holesizeY = Random.Range(4, 7);
+        //holesizeX = Random.Range(4,7);
+        //holesizeY = Random.Range(4, 7);
         //holeProb = (holesizeX-2)/100+(holesizeY-2)/100+.9f;
         Debug.Log(holesizeX); Debug.Log(holesizeY); Debug.Log(holeProb);
         //holetype = Random.Range(0, 2);
@@ -28,11 +30,11 @@ public class setupScript : MonoBehaviour {
         finishpointX[3] = xmapsize;
         finishpointY[3] = zmapsize;
        
-        var numbers = new int[xmapsize, zmapsize];
+        var numbers = new int[xmapsize/5, zmapsize/5];
 
-        for (int z = 0; z < xmapsize; z++)
+        for (int z = 0; z < xmapsize/5; z++)
         {
-            for (int x = 0; x < zmapsize; x++)
+            for (int x = 0; x < zmapsize/5; x++)
             {
                 //if (holetype==0)
                 {
@@ -44,23 +46,31 @@ public class setupScript : MonoBehaviour {
                 //}
             }
         }
-        for (int z = 0; z < xmapsize; z++)
+        for (int z = 0; z < xmapsize/5; z++)
         {
-            for (int x = 0; x < zmapsize; x++)
+            for (int x = 0; x < zmapsize/5; x++)
             {
-                if (Random.value > holeProb)
+                //if (Random.value > holeProb)
                 {
-                    for (int y = z; y < z+holesizeX; y++)
+                    //for (int y = z; y < z+holesizeX; y++)
                     {
-                        for (int v = x; v < x+holesizeX; v++)
+                        //for (int v = x; v < x+holesizeX; v++)
                         {
-                            if (y<xmapsize && v<zmapsize)
+                            //if (y<xmapsize/5 && v<zmapsize/5)
                             {
-                               
-                                //if (holetype == 0)
-                                //{
-                                    numbers[y, v] = 1;
-                                //}
+                                int rand = Random.Range(2, 4);
+                                if (rand==1)
+                                {
+                                    numbers[x, z] = 1;
+                                }
+                                else if (rand == 2)
+                                {
+                                    numbers[x, z] = 2;
+                                }
+                                else if (rand == 3)
+                                {
+                                    numbers[x, z] = 3;
+                                }
                                 //else
                                 //{
                                 //    numbers[y, v] = 0;
@@ -71,13 +81,15 @@ public class setupScript : MonoBehaviour {
                 }
             }
         }
-        for (int z = 0; z < xmapsize; z++)
+        for (int z = 0; z < xmapsize/5; z++)
         {
-            for (int x = 0; x < zmapsize; x++)
+            for (int x = 0; x < zmapsize/5; x++)
             {
                 if (numbers[z,x]==1)
                 {
-                    Instantiate(pickUp, new Vector3(x-xmapsize/2, -5, z-zmapsize/2), Quaternion.identity);
+                    //Debug.Log("blah");
+                    Instantiate(floorNode, new Vector3(x*5-xmapsize/2, -5, z*5-zmapsize/2), Quaternion.identity);
+                    
                     if ((z + x) > (finishpointX[0] + finishpointY[0]))
                     {
                         finishpointX[0] = z;
@@ -100,14 +112,24 @@ public class setupScript : MonoBehaviour {
                     }
 
                 }
+                else if (numbers[z,x]==2)
+                {
+                    Instantiate(floorPathX, new Vector3(x * 5 - xmapsize / 2, -5, z * 5 - zmapsize / 2), Quaternion.identity);
+                    Debug.Log("kfnbkn");
+                }
+                else if (numbers[z, x] == 3)
+                {
+                    Instantiate(floorPathY, new Vector3(x * 5 - xmapsize / 2, -5, z * 5 - zmapsize / 2), Quaternion.identity);
+                    Debug.Log("dkmbkdn");
+                }
                 //if (playerController.winTrigger == true)
                 //{
                 //    Debug.Log("win");
-                    //if (numbers[z, x] == 1)
-                    //{
-                    //    pickUp.transform.position = new Vector3(0,-20, 0);
-                    //}
-               // }
+                //if (numbers[z, x] == 1)
+                //{
+                //    pickUp.transform.position = new Vector3(0,-20, 0);
+                //}
+                // }
             }
         }
         Instantiate(pickUp2, new Vector3(finishpointY[0] - xmapsize / 2 - .5f, 0.5f, finishpointX[0] - zmapsize / 2-.5f), Quaternion.identity);

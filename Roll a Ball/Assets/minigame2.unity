@@ -347,7 +347,7 @@ GameObject:
   - 64: {fileID: 380933562}
   - 23: {fileID: 380933561}
   m_Layer: 0
-  m_Name: ground
+  m_Name: water
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -632,6 +632,48 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
+--- !u!1001 &621656591
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 472656, guid: 6f4ec9d1f55c6b14983c55ddb5c98fae, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 472656, guid: 6f4ec9d1f55c6b14983c55ddb5c98fae, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 472656, guid: 6f4ec9d1f55c6b14983c55ddb5c98fae, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 472656, guid: 6f4ec9d1f55c6b14983c55ddb5c98fae, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 472656, guid: 6f4ec9d1f55c6b14983c55ddb5c98fae, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 472656, guid: 6f4ec9d1f55c6b14983c55ddb5c98fae, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 472656, guid: 6f4ec9d1f55c6b14983c55ddb5c98fae, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 472656, guid: 6f4ec9d1f55c6b14983c55ddb5c98fae, type: 2}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 6f4ec9d1f55c6b14983c55ddb5c98fae, type: 2}
+  m_IsPrefabParent: 0
 --- !u!4 &664355049 stripped
 Transform:
   m_PrefabParentObject: {fileID: 453270, guid: 19e17d615bacb1140b6d3135f96cc529, type: 2}
@@ -982,7 +1024,7 @@ RectTransform:
   - {fileID: 2109807606}
   - {fileID: 1500768035}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -1014,7 +1056,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
 --- !u!1 &1095665024
 GameObject:
   m_ObjectHideFlags: 0
@@ -1075,7 +1117,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
 --- !u!1001 &1122177134
 Prefab:
   m_ObjectHideFlags: 0
@@ -1903,12 +1945,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b70ef5156421a764cbb2d82a0aaafa0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickUp: {fileID: 189498, guid: ae2ee7fe961625c4cb799a568d9d73a8, type: 2}
+  floorNode: {fileID: 189498, guid: ae2ee7fe961625c4cb799a568d9d73a8, type: 2}
+  floorPathX: {fileID: 163158, guid: 6f4ec9d1f55c6b14983c55ddb5c98fae, type: 2}
+  floorPathY: {fileID: 128458, guid: ee93acb399773cf42b27303e0d12972d, type: 2}
   pickUp2: {fileID: 189276, guid: 19e17d615bacb1140b6d3135f96cc529, type: 2}
   xmapsize: 50
   zmapsize: 50
-  holesizeX: 6
-  holesizeY: 6
+  holesizeX: 1
+  holesizeY: 1
   holeProb: 0.98
 --- !u!4 &1630358712
 Transform:
