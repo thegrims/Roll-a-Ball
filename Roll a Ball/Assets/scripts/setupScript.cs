@@ -89,37 +89,20 @@ public class setupScript : MonoBehaviour {
                 {
                     //Debug.Log("blah");
                     Instantiate(floorNode, new Vector3(x*5-xmapsize/2, -5, z*5-zmapsize/2), Quaternion.identity);
-                    
-                    if ((z + x) > (finishpointX[0] + finishpointY[0]))
-                    {
-                        finishpointX[0] = z;
-                        finishpointY[0] = x;
-                    }
-                    if ((z + x) < (finishpointX[3] + finishpointY[3]))
-                    {
-                        finishpointX[3] = z;
-                        finishpointY[3] = x;
-                    }
-                    if ((z - x) < (finishpointX[2] - finishpointY[2]))
-                    {
-                        finishpointX[2] = z;
-                        finishpointY[2] = x;
-                    }
-                    if ((z - x) > (finishpointX[1] - finishpointY[1]))
-                    {
-                        finishpointX[1] = z;
-                        finishpointY[1] = x;
-                    }
+
+                    pickupPos(z, x, finishpointX,finishpointY);
 
                 }
                 else if (numbers[z,x]==2)
                 {
                     Instantiate(floorPathX, new Vector3(x * 5 - xmapsize / 2, -5, z * 5 - zmapsize / 2), Quaternion.identity);
+                    pickupPos(z, x, finishpointX, finishpointY);
                     Debug.Log("kfnbkn");
                 }
                 else if (numbers[z, x] == 3)
                 {
                     Instantiate(floorPathY, new Vector3(x * 5 - xmapsize / 2, -5, z * 5 - zmapsize / 2), Quaternion.identity);
+                    pickupPos(z, x, finishpointX, finishpointY);
                     Debug.Log("dkmbkdn");
                 }
                 //if (playerController.winTrigger == true)
@@ -132,14 +115,37 @@ public class setupScript : MonoBehaviour {
                 // }
             }
         }
-        Instantiate(pickUp2, new Vector3(finishpointY[0] - xmapsize / 2 - .5f, 0.5f, finishpointX[0] - zmapsize / 2-.5f), Quaternion.identity);
-        Instantiate(pickUp2, new Vector3(finishpointY[1] - xmapsize / 2 - .5f, 0.5f, finishpointX[1] - zmapsize / 2-.5f), Quaternion.identity);
-        Instantiate(pickUp2, new Vector3(finishpointY[2] - xmapsize / 2 - .5f, 0.5f, finishpointX[2] - zmapsize / 2-.5f), Quaternion.identity);
-        Instantiate(pickUp2, new Vector3(finishpointY[3] - xmapsize / 2 - .5f, 0.5f, finishpointX[3] - zmapsize / 2-.5f), Quaternion.identity);
+        Instantiate(pickUp2, new Vector3(finishpointY[0]*5 - xmapsize / 2 - .5f, 0.5f, finishpointX[0]*5 - zmapsize / 2-.5f), Quaternion.identity);
+        Instantiate(pickUp2, new Vector3(finishpointY[1]*5 - xmapsize / 2 - .5f, 0.5f, finishpointX[1]*5 - zmapsize / 2-.5f), Quaternion.identity);
+        Instantiate(pickUp2, new Vector3(finishpointY[2]*5 - xmapsize / 2 - .5f, 0.5f, finishpointX[2]*5 - zmapsize / 2-.5f), Quaternion.identity);
+        Instantiate(pickUp2, new Vector3(finishpointY[3]*5 - xmapsize / 2 - .5f, 0.5f, finishpointX[3]*5 - zmapsize / 2-.5f), Quaternion.identity);
     }
 	
 	// Update is called once per frame
 	void Update () {
 	
 	}
+    void pickupPos(int z,int x, int[] finishpointX, int[] finishpointY)
+    {
+        if ((z + x) > (finishpointX[0] + finishpointY[0]))
+        {
+            finishpointX[0] = z;
+            finishpointY[0] = x;
+        }
+        if ((z + x) < (finishpointX[3] + finishpointY[3]))
+        {
+            finishpointX[3] = z;
+            finishpointY[3] = x;
+        }
+        if ((z - x) < (finishpointX[2] - finishpointY[2]))
+        {
+            finishpointX[2] = z;
+            finishpointY[2] = x;
+        }
+        if ((z - x) > (finishpointX[1] - finishpointY[1]))
+        {
+            finishpointX[1] = z;
+            finishpointY[1] = x;
+        }
+    }
 }

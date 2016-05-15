@@ -18,7 +18,7 @@ public class changeScene : MonoBehaviour {
         for (int i=0; i<10; i++)
         {
             Debug.Log("blah");
-             im.GetComponent<CanvasRenderer>().SetAlpha(i/10);
+             //im.GetComponent<CanvasRenderer>().SetAlpha(i/10);
              
             //panel.GetComponent<Image>().CrossFadeColor(Color.black, 2.0f, false);
         }
