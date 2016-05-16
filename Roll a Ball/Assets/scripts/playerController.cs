@@ -10,10 +10,19 @@ public class playerController : MonoBehaviour {
     private Rigidbody rb;
     bool jumping = false;
     public Text countText;
+    int platform = 0;
     //public static bool winTrigger = false;
 
     void Start()
     {
+        if (Application.platform == RuntimePlatform.WindowsPlayer)
+        {
+            platform = 1;
+        }
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            platform = 2;
+        }
         //countText.GetComponent<CanvasRenderer>().SetAlpha(0.5f);
         SetCountText();
         rb = GetComponent<Rigidbody>();
@@ -23,17 +32,10 @@ public class playerController : MonoBehaviour {
         //updates after every frame of movement
         if (Input.GetKeyDown("space") && jumping == false)
         {
-            //RaycastHit hit = new RaycastHit();
-            //if (Physics.Raycast(transform.position, -Vector3.up, 1))
             {
-                //Debug.Log(hit.distance);
-                //if(hit.distance==0)
-                //{
                 rb.AddForce(new Vector3(0, jumpSpeed, 0), ForceMode.Impulse);
-                //}
             }
             jumping = true;
-            //jumping = true; rb.position.y < .60 && rb.position.y > .40
         }
         
     }
