@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class playerController : MonoBehaviour {
     public float speed;
@@ -90,6 +91,7 @@ public class playerController : MonoBehaviour {
         countText.text = "SCORE: " + pickupCount.ToString();
         if (pickupCount >= 4)
         {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             //winText.text = "You Win!";
         }
     }
