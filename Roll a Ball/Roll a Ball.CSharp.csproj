@@ -69,9 +69,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\scripts\NewBehaviourScript.cs" />
-    <Compile Include="Assets\scripts\NoSharedVertices.cs" />
-    <Compile Include="Assets\scripts\Waves.cs" />
+    <Compile Include="Assets\Sources\LightningBolt.cs" />
     <Compile Include="Assets\scripts\cameraController.cs" />
     <Compile Include="Assets\scripts\changeScene.cs" />
     <Compile Include="Assets\scripts\playerController.cs" />
@@ -81,6 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\ColorfulButtons\Credits.txt" />
+    <None Include="Assets\LowPolyWaves.shader" />
     <None Include="Assets\Standard Assets\Effects\CinematicEffects(ALPHA)\AntiAliasing\FXAA\Resources\FXAA.shader" />
     <None Include="Assets\Standard Assets\Effects\CinematicEffects(ALPHA)\AntiAliasing\FXAA\Resources\FXAA3.cginc" />
     <None Include="Assets\Standard Assets\Effects\CinematicEffects(ALPHA)\AntiAliasing\SMAA\Resources\SMAA.cginc" />

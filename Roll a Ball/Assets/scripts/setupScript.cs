@@ -58,10 +58,10 @@ public class setupScript : MonoBehaviour {
                         {
                             //if (y<xmapsize/5 && v<zmapsize/5)
                             {
-                                int rand = Random.Range(2, 4);
-                                if (rand==1)
+                                int rand = Random.Range(1, 4);
+                                if (rand == 1)
                                 {
-                                    numbers[x, z] = 1;
+                                    //numbers[x, z] = 1;
                                 }
                                 else if (rand == 2)
                                 {
@@ -71,10 +71,6 @@ public class setupScript : MonoBehaviour {
                                 {
                                     numbers[x, z] = 3;
                                 }
-                                //else
-                                //{
-                                //    numbers[y, v] = 0;
-                                //}
                             }
                         }
                     }
@@ -97,13 +93,13 @@ public class setupScript : MonoBehaviour {
                 {
                     Instantiate(floorPathX, new Vector3(x * 5 - xmapsize / 2, -5, z * 5 - zmapsize / 2), Quaternion.identity);
                     pickupPos(z, x, finishpointX, finishpointY);
-                    Debug.Log("kfnbkn");
+                    
                 }
                 else if (numbers[z, x] == 3)
                 {
                     Instantiate(floorPathY, new Vector3(x * 5 - xmapsize / 2, -5, z * 5 - zmapsize / 2), Quaternion.identity);
                     pickupPos(z, x, finishpointX, finishpointY);
-                    Debug.Log("dkmbkdn");
+                    
                 }
                 //if (playerController.winTrigger == true)
                 //{

@@ -63,6 +63,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Plugins\MeshExtrusion.cs" />
+    <Compile Include="Assets\Plugins\Perlin.cs" />
     <Compile Include="Assets\Standard Assets\Effects\CinematicEffects(ALPHA)\AntiAliasing\AntiAliasing.cs" />
     <Compile Include="Assets\Standard Assets\Effects\CinematicEffects(ALPHA)\AntiAliasing\FXAA\FXAA.cs" />
     <Compile Include="Assets\Standard Assets\Effects\CinematicEffects(ALPHA)\AntiAliasing\IAntiAliasing.cs" />
@@ -81,6 +83,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\ColorfulButtons\Credits.txt" />
+    <None Include="Assets\LowPolyWaves.shader" />
     <None Include="Assets\Standard Assets\Effects\CinematicEffects(ALPHA)\AntiAliasing\FXAA\Resources\FXAA.shader" />
     <None Include="Assets\Standard Assets\Effects\CinematicEffects(ALPHA)\AntiAliasing\FXAA\Resources\FXAA3.cginc" />
     <None Include="Assets\Standard Assets\Effects\CinematicEffects(ALPHA)\AntiAliasing\SMAA\Resources\SMAA.cginc" />
