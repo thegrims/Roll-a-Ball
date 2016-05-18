@@ -1,17 +1,15 @@
 fileFormatVersion: 2
-guid: 4c48278d29c1e5d478d5ca5f45bb5f3d
-timeCreated: 1463415227
+guid: a8ec394101ca46748bd69b9f6c6dec21
+timeCreated: 1463546455
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
-    100002: SketchUp_ID3
     400000: //RootNode
-    400002: SketchUp_ID3
-    2300000: SketchUp_ID3
-    3300000: SketchUp_ID3
-    4300000: SketchUp_ID3
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Cylinder
   materials:
     importMaterials: 1
     materialName: 0

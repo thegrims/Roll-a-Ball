@@ -5,6 +5,7 @@ public class setupScript : MonoBehaviour {
     public GameObject floorNode;
     public GameObject floorPathX;
     public GameObject floorPathY;
+    public GameObject tree;
     public GameObject pickUp2;
     public int xmapsize, zmapsize;
     public float holesizeX, holesizeY;
@@ -85,19 +86,33 @@ public class setupScript : MonoBehaviour {
                 {
                     //Debug.Log("blah");
                     Instantiate(floorNode, new Vector3(x*5-xmapsize/2, -5, z*5-zmapsize/2), Quaternion.identity);
-
+                    int rand = Random.Range(1, 4);
+                    if (rand == 1)
+                    {
+                        Instantiate(tree, new Vector3(x * 5 - xmapsize / 2, 1, z * 5 - zmapsize / 2), Quaternion.identity);
+                    }
                     pickupPos(z, x, finishpointX,finishpointY);
 
                 }
                 else if (numbers[z,x]==2)
                 {
                     Instantiate(floorPathX, new Vector3(x * 5 - xmapsize / 2, -5, z * 5 - zmapsize / 2), Quaternion.identity);
+                    int rand = Random.Range(1, 4);
+                    if (rand == 1)
+                    {
+                        Instantiate(tree, new Vector3(x * 5 - xmapsize / 2, 1, z * 5 - zmapsize / 2), Quaternion.identity);
+                    }
                     pickupPos(z, x, finishpointX, finishpointY);
                     
                 }
                 else if (numbers[z, x] == 3)
                 {
                     Instantiate(floorPathY, new Vector3(x * 5 - xmapsize / 2, -5, z * 5 - zmapsize / 2), Quaternion.identity);
+                    int rand = Random.Range(1, 4);
+                    if (rand == 1)
+                    {
+                        Instantiate(tree, new Vector3(x * 5 - xmapsize / 2, 1, z * 5 - zmapsize / 2), Quaternion.identity);
+                    }
                     pickupPos(z, x, finishpointX, finishpointY);
                     
                 }
