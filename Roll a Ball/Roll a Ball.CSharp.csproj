@@ -74,6 +74,7 @@
     <Compile Include="Assets\scripts\changeScene.cs" />
     <Compile Include="Assets\scripts\playerController.cs" />
     <Compile Include="Assets\scripts\rotater.cs" />
+    <Compile Include="Assets\scripts\setupForest.cs" />
     <Compile Include="Assets\scripts\setupScript.cs" />
     <Compile Include="Assets\scripts\trigger.cs" />
   </ItemGroup>

@@ -89,7 +89,7 @@ public class setupScript : MonoBehaviour {
                     int rand = Random.Range(1, 4);
                     if (rand == 1)
                     {
-                        Instantiate(tree, new Vector3(x * 5 - xmapsize / 2, 1, z * 5 - zmapsize / 2), Quaternion.identity);
+                        Instantiate(tree, new Vector3((x * 5 - .5f) - xmapsize / 2, 0, (z * 5 - .5f) - zmapsize / 2), Quaternion.identity);
                     }
                     pickupPos(z, x, finishpointX,finishpointY);
 
@@ -100,7 +100,7 @@ public class setupScript : MonoBehaviour {
                     int rand = Random.Range(1, 4);
                     if (rand == 1)
                     {
-                        Instantiate(tree, new Vector3(x * 5 - xmapsize / 2, 1, z * 5 - zmapsize / 2), Quaternion.identity);
+                        Instantiate(tree, new Vector3((x * 5 - .5f) - xmapsize / 2, 0, (z * 5 - .5f) - zmapsize / 2), Quaternion.identity);
                     }
                     pickupPos(z, x, finishpointX, finishpointY);
                     
@@ -111,7 +111,7 @@ public class setupScript : MonoBehaviour {
                     int rand = Random.Range(1, 4);
                     if (rand == 1)
                     {
-                        Instantiate(tree, new Vector3(x * 5 - xmapsize / 2, 1, z * 5 - zmapsize / 2), Quaternion.identity);
+                        Instantiate(tree, new Vector3((x * 5 - .5f) - xmapsize / 2, 0, (z * 5 - .5f) - zmapsize / 2), Quaternion.identity);
                     }
                     pickupPos(z, x, finishpointX, finishpointY);
                     
