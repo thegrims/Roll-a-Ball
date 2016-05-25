@@ -66,8 +66,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Plugins\MeshExtrusion.cs" />
-    <Compile Include="Assets\Plugins\Perlin.cs" />
     <Compile Include="Assets\Standard Assets\Effects\CinematicEffects(ALPHA)\AntiAliasing\AntiAliasing.cs" />
     <Compile Include="Assets\Standard Assets\Effects\CinematicEffects(ALPHA)\AntiAliasing\FXAA\FXAA.cs" />
     <Compile Include="Assets\Standard Assets\Effects\CinematicEffects(ALPHA)\AntiAliasing\IAntiAliasing.cs" />
@@ -85,9 +83,6 @@
     <Compile Include="Assets\Standard Assets\Effects\CinematicEffects(BETA)\TonemappingColorGrading\TonemappingColorGrading.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\CactusPack\Shaders\Basic_Rimlight.shader" />
-    <None Include="Assets\CactusPack\Shaders\VertexBlend.shader" />
-    <None Include="Assets\ColorfulButtons\Credits.txt" />
     <None Include="Assets\Standard Assets\Effects\CinematicEffects(ALPHA)\AntiAliasing\FXAA\Resources\FXAA.shader" />
     <None Include="Assets\Standard Assets\Effects\CinematicEffects(ALPHA)\AntiAliasing\FXAA\Resources\FXAA3.cginc" />
     <None Include="Assets\Standard Assets\Effects\CinematicEffects(ALPHA)\AntiAliasing\SMAA\Resources\SMAA.cginc" />
@@ -104,6 +99,9 @@
     <None Include="Assets\Standard Assets\Effects\CinematicEffects(BETA)\TonemappingColorGrading\Resources\HistogramRender.shader" />
     <None Include="Assets\Standard Assets\Effects\CinematicEffects(BETA)\TonemappingColorGrading\Resources\TonemappingColorGrading.cginc" />
     <None Include="Assets\Standard Assets\Effects\CinematicEffects(BETA)\TonemappingColorGrading\Resources\TonemappingColorGrading.shader" />
+    <None Include="Assets\extra assets\CactusPack\Shaders\Basic_Rimlight.shader" />
+    <None Include="Assets\extra assets\CactusPack\Shaders\VertexBlend.shader" />
+    <None Include="Assets\extra assets\ColorfulButtons\Credits.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

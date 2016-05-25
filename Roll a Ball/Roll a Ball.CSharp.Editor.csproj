@@ -5,16 +5,16 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{4740D436-ADF3-0D16-849A-A4148675E84F}</ProjectGuid>
+    <ProjectGuid>{6F37F724-7B11-4560-43FC-0AAED05B259E}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
+    <TargetFrameworkProfile>Unity Full v3.5</TargetFrameworkProfile>
     <CompilerResponseFile></CompilerResponseFile>
-    <UnityProjectType>Game:1</UnityProjectType>
+    <UnityProjectType>Editor:5</UnityProjectType>
     <UnityBuildTarget>Android:13</UnityBuildTarget>
     <UnityVersion>5.3.4f1</UnityVersion>
     <RootNamespace></RootNamespace>
@@ -52,45 +52,72 @@
     <Reference Include="UnityEngine">
       <HintPath>Library\UnityAssemblies\UnityEngine.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor">
+      <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Advertisements">
+      <HintPath>Library\UnityAssemblies\UnityEditor.Advertisements.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>Library\UnityAssemblies\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.EditorTestsRunner">
+      <HintPath>Library\UnityAssemblies\UnityEditor.EditorTestsRunner.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.UI">
+      <HintPath>Library\UnityAssemblies\UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Networking">
       <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor.Networking">
+      <HintPath>Library\UnityAssemblies\UnityEditor.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.TreeEditor">
+      <HintPath>Library\UnityAssemblies\UnityEditor.TreeEditor.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.Analytics">
       <HintPath>Library\UnityAssemblies\UnityEngine.Analytics.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEditor">
-      <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
+    <Reference Include="UnityEditor.Graphs">
+      <HintPath>Library\UnityAssemblies\UnityEditor.Graphs.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Android.Extensions">
+      <HintPath>Library\UnityAssemblies\UnityEditor.Android.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.WindowsStandalone.Extensions">
+      <HintPath>Library\UnityAssemblies\UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
+      <HintPath>Library\UnityAssemblies\SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-UnityScript">
+      <HintPath>Library\ScriptAssemblies\Assembly-UnityScript.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\extra assets\Sources\LightningBolt.cs" />
-    <Compile Include="Assets\extra assets\Sources\Plugins\MeshExtrusion.cs" />
-    <Compile Include="Assets\extra assets\Sources\Plugins\Perlin.cs" />
-    <Compile Include="Assets\extra assets\Standard Assets\Effects\CinematicEffects(ALPHA)\AntiAliasing\AntiAliasing.cs" />
-    <Compile Include="Assets\extra assets\Standard Assets\Effects\CinematicEffects(ALPHA)\AntiAliasing\FXAA\FXAA.cs" />
-    <Compile Include="Assets\extra assets\Standard Assets\Effects\CinematicEffects(ALPHA)\AntiAliasing\IAntiAliasing.cs" />
-    <Compile Include="Assets\extra assets\Standard Assets\Effects\CinematicEffects(ALPHA)\AntiAliasing\SMAA\SMAA.cs" />
-    <Compile Include="Assets\extra assets\Standard Assets\Effects\CinematicEffects(BETA)\AmbientOcclusion\AmbientOcclusion.cs" />
-    <Compile Include="Assets\extra assets\Standard Assets\Effects\CinematicEffects(BETA)\AmbientOcclusion\Helpers\PropertyObserver.cs" />
-    <Compile Include="Assets\extra assets\Standard Assets\Effects\CinematicEffects(BETA)\AmbientOcclusion\Helpers\Settings.cs" />
-    <Compile Include="Assets\extra assets\Standard Assets\Effects\CinematicEffects(BETA)\Bloom\Bloom.cs" />
-    <Compile Include="Assets\extra assets\Standard Assets\Effects\CinematicEffects(BETA)\Common\ImageEffectHelper.cs" />
-    <Compile Include="Assets\extra assets\Standard Assets\Effects\CinematicEffects(BETA)\Common\MinAttribute.cs" />
-    <Compile Include="Assets\extra assets\Standard Assets\Effects\CinematicEffects(BETA)\Common\RenderTextureUtility.cs" />
-    <Compile Include="Assets\extra assets\Standard Assets\Effects\CinematicEffects(BETA)\DepthOfField\DepthOfField.cs" />
-    <Compile Include="Assets\extra assets\Standard Assets\Effects\CinematicEffects(BETA)\LensAberrations\LensAberrations.cs" />
-    <Compile Include="Assets\extra assets\Standard Assets\Effects\CinematicEffects(BETA)\ScreenSpaceReflection\ScreenSpaceReflection.cs" />
-    <Compile Include="Assets\extra assets\Standard Assets\Effects\CinematicEffects(BETA)\TonemappingColorGrading\TonemappingColorGrading.cs" />
-    <Compile Include="Assets\scripts\cameraController.cs" />
-    <Compile Include="Assets\scripts\changeScene.cs" />
-    <Compile Include="Assets\scripts\playerController.cs" />
-    <Compile Include="Assets\scripts\rotater.cs" />
-    <Compile Include="Assets\scripts\setupForest.cs" />
-    <Compile Include="Assets\scripts\setupScript.cs" />
-    <Compile Include="Assets\scripts\trigger.cs" />
+    <ProjectReference Include="Roll a Ball.CSharp.csproj">
+      <Project>{4740D436-ADF3-0D16-849A-A4148675E84F}</Project>
+      <Name>Roll a Ball.CSharp</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Assets\extra assets\Standard Assets\Effects\CinematicEffects(ALPHA)\AntiAliasing\Editor\AntiAliasingEditor.cs" />
+    <Compile Include="Assets\extra assets\Standard Assets\Effects\CinematicEffects(ALPHA)\AntiAliasing\Editor\IAntiAliasingEditor.cs" />
+    <Compile Include="Assets\extra assets\Standard Assets\Effects\CinematicEffects(ALPHA)\AntiAliasing\FXAA\Editor\FXAAEditor.cs" />
+    <Compile Include="Assets\extra assets\Standard Assets\Effects\CinematicEffects(ALPHA)\AntiAliasing\SMAA\Editor\SMAAEditor.cs" />
+    <Compile Include="Assets\extra assets\Standard Assets\Effects\CinematicEffects(BETA)\AmbientOcclusion\Editor\AmbientOcclusionEditor.cs" />
+    <Compile Include="Assets\extra assets\Standard Assets\Effects\CinematicEffects(BETA)\Bloom\Editor\BloomEditor.cs" />
+    <Compile Include="Assets\extra assets\Standard Assets\Effects\CinematicEffects(BETA)\Common\Editor\EditorGUIHelper.cs" />
+    <Compile Include="Assets\extra assets\Standard Assets\Effects\CinematicEffects(BETA)\Common\Editor\FieldFinder.cs" />
+    <Compile Include="Assets\extra assets\Standard Assets\Effects\CinematicEffects(BETA)\Common\Editor\MinDrawer.cs" />
+    <Compile Include="Assets\extra assets\Standard Assets\Effects\CinematicEffects(BETA)\DepthOfField\Editor\DepthOfFieldEditor.cs" />
+    <Compile Include="Assets\extra assets\Standard Assets\Effects\CinematicEffects(BETA)\LensAberrations\Editor\LensAberrationsEditor.cs" />
+    <Compile Include="Assets\extra assets\Standard Assets\Effects\CinematicEffects(BETA)\ScreenSpaceReflection\Editor\ScreenSpaceReflectionEditor.cs" />
+    <Compile Include="Assets\extra assets\Standard Assets\Effects\CinematicEffects(BETA)\TonemappingColorGrading\Editor\TonemappingColorGradingEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\extra assets\CactusPack\Shaders\Basic_Rimlight.shader" />

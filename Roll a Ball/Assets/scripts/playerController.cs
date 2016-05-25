@@ -10,11 +10,22 @@ public class playerController : MonoBehaviour {
     private Rigidbody rb;
     bool jumping = false;
     public Text countText;
+    public Text timeText;
+    public Text timeText2;
+    public Image star1;
+    public Image star2;
+    public Image star3;
+    public Image star4;
     int platform = 0;
+    float timer = 30;
     //public static bool winTrigger = false;
 
     void Start()
     {
+        star1.GetComponent<CanvasRenderer>().SetAlpha(0);
+        star2.GetComponent<CanvasRenderer>().SetAlpha(0);
+        star3.GetComponent<CanvasRenderer>().SetAlpha(0);
+        star4.GetComponent<CanvasRenderer>().SetAlpha(0);
         if (Application.platform == RuntimePlatform.WindowsPlayer)
         {
             platform = 1;
@@ -30,6 +41,10 @@ public class playerController : MonoBehaviour {
     void Update ()
     {
         //updates after every frame of movement
+        
+        timer -= Time.deltaTime; //Time.deltaTime will increase the value with 1 every second.
+        timeText.text = Mathf.Round(timer).ToString();
+        timeText2.text = Mathf.Round(timer).ToString();
         if (Input.GetKeyDown("space") && jumping == false)
         {
             {
@@ -91,6 +106,56 @@ public class playerController : MonoBehaviour {
     void SetCountText()
     {
         countText.text = "SCORE: " + pickupCount.ToString();
+        if (pickupCount==1)
+        {
+            /*
+            for (int i = 0; i < 100; i++)
+            {
+                Debug.Log("blah");
+                star1.GetComponent<CanvasRenderer>().SetAlpha(i / 100);
+                //panel.GetComponent<Image>().CrossFadeColor(Color.black, 2.0f, false);
+            }*/
+            Color colorToFadeTo;
+            colorToFadeTo = new Color(1f, 1f, 1f, 1f);
+            star1.CrossFadeColor(colorToFadeTo, 1f, true, true);
+        }
+        if (pickupCount == 2)
+        { /*
+            for (int i = 0; i < 100; i++)
+            {
+                Debug.Log("blah");
+                star2.GetComponent<CanvasRenderer>().SetAlpha(i / 100);
+                //panel.GetComponent<Image>().CrossFadeColor(Color.black, 2.0f, false);
+            }*/
+            Color colorToFadeTo;
+            colorToFadeTo = new Color(1f, 1f, 1f, 1f);
+            star2.CrossFadeColor(colorToFadeTo, 1f, true, true);
+        }
+        if (pickupCount == 3)
+        {
+            /*
+            for (int i = 0; i < 100; i++)
+            {
+                Debug.Log("blah");
+                star3.GetComponent<CanvasRenderer>().SetAlpha(i / 100);
+                //panel.GetComponent<Image>().CrossFadeColor(Color.black, 2.0f, false);
+            }*/
+            Color colorToFadeTo;
+            colorToFadeTo = new Color(1f, 1f, 1f, 1f);
+            star3.CrossFadeColor(colorToFadeTo, 1f, true, true);
+        }
+        if (pickupCount == 4)
+        {/*
+            for (int i = 0; i < 100; i++)
+            {
+                Debug.Log("blah");
+                star4.GetComponent<CanvasRenderer>().SetAlpha(i / 100);
+                //panel.GetComponent<Image>().CrossFadeColor(Color.black, 2.0f, false);
+            }*/
+            Color colorToFadeTo;
+            colorToFadeTo = new Color(1f, 1f, 1f, 1f);
+            star4.CrossFadeColor(colorToFadeTo, 1f, true, true);
+        }
         if (pickupCount >= 4)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class setupScript : MonoBehaviour {
+    public Camera mainCam;
     public GameObject floorNode;
     public GameObject floorPathX;
     public GameObject floorPathY;
@@ -127,6 +128,7 @@ public class setupScript : MonoBehaviour {
             }
         }
         Instantiate(pickUp2, new Vector3(finishpointY[0]*5 - xmapsize / 2 - .5f, 0.5f, finishpointX[0]*5 - zmapsize / 2-.5f), Quaternion.identity);
+        //mainCam.transform.position = new Vector3(finishpointY[0] * 5 - xmapsize / 2 - .5f, transform.position.y, finishpointX[0] * 5 - zmapsize / 2 - .5f);
         Instantiate(pickUp2, new Vector3(finishpointY[1]*5 - xmapsize / 2 - .5f, 0.5f, finishpointX[1]*5 - zmapsize / 2-.5f), Quaternion.identity);
         Instantiate(pickUp2, new Vector3(finishpointY[2]*5 - xmapsize / 2 - .5f, 0.5f, finishpointX[2]*5 - zmapsize / 2-.5f), Quaternion.identity);
         Instantiate(pickUp2, new Vector3(finishpointY[3]*5 - xmapsize / 2 - .5f, 0.5f, finishpointX[3]*5 - zmapsize / 2-.5f), Quaternion.identity);

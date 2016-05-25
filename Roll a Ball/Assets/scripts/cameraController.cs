@@ -10,6 +10,8 @@ public class cameraController : MonoBehaviour {
 
 	void Start ()
     {
+        //Vector3 movement = new Vector3(10.0f, 0.0f, 0.0f);
+        //transform.position = movement;
         offset = transform.position - player.transform.position;
 	}
 	
