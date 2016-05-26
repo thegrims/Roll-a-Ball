@@ -72,6 +72,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Pause Menu Assets\Scripts\Pausemenu\PauseManager.cs" />
+    <Compile Include="Assets\Pause Menu Assets\Scripts\Utlities\CoroutineUtlities.cs" />
+    <Compile Include="Assets\Pause Menu Assets\Scripts\Utlities\Rotate.cs" />
     <Compile Include="Assets\extra assets\Sources\LightningBolt.cs" />
     <Compile Include="Assets\extra assets\Sources\Plugins\MeshExtrusion.cs" />
     <Compile Include="Assets\extra assets\Sources\Plugins\Perlin.cs" />
@@ -90,6 +93,7 @@
     <Compile Include="Assets\extra assets\Standard Assets\Effects\CinematicEffects(BETA)\LensAberrations\LensAberrations.cs" />
     <Compile Include="Assets\extra assets\Standard Assets\Effects\CinematicEffects(BETA)\ScreenSpaceReflection\ScreenSpaceReflection.cs" />
     <Compile Include="Assets\extra assets\Standard Assets\Effects\CinematicEffects(BETA)\TonemappingColorGrading\TonemappingColorGrading.cs" />
+    <Compile Include="Assets\scripts\Transition.cs" />
     <Compile Include="Assets\scripts\cameraController.cs" />
     <Compile Include="Assets\scripts\changeScene.cs" />
     <Compile Include="Assets\scripts\playerController.cs" />
@@ -100,6 +104,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\8 Bit Retro Rampage Free\Readme.txt" />
+    <None Include="Assets\Pause Menu Assets\Fonts\exo\SIL Open Font License.txt" />
+    <None Include="Assets\Pause Menu Assets\Fonts\open-sans\Apache License.txt" />
     <None Include="Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\BlendModesOverlay.shader" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\BlurEffectConeTaps.shader" />
