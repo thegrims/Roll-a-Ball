@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Transition : MonoBehaviour {
     public GameObject Player;
-    
+    public GameObject pauseMenu;
     // Use this for initialization
     void Start ()
     {
@@ -21,6 +21,7 @@ public class Transition : MonoBehaviour {
         if (Player.GetComponent<playerController>().pickupCount == 4)
         {
             Player.GetComponent<playerController>().enabled = false;
+            pauseMenu.SetActive(true);
         }
     }
 

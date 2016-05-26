@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class playerController : MonoBehaviour {
     public float speed;
     public float jumpSpeed;
-    private int pickupCount = 0;
+    public int pickupCount = 0;
     private Rigidbody rb;
     bool jumping = false;
     public Text countText;
@@ -22,10 +22,10 @@ public class playerController : MonoBehaviour {
 
     void Start()
     {
-        star1.GetComponent<CanvasRenderer>().SetAlpha(0.15f);
-        star2.GetComponent<CanvasRenderer>().SetAlpha(0.15f);
-        star3.GetComponent<CanvasRenderer>().SetAlpha(0.15f);
-        star4.GetComponent<CanvasRenderer>().SetAlpha(0.15f);
+        star1.GetComponent<CanvasRenderer>().SetAlpha(0.2f);
+        star2.GetComponent<CanvasRenderer>().SetAlpha(0.2f);
+        star3.GetComponent<CanvasRenderer>().SetAlpha(0.2f);
+        star4.GetComponent<CanvasRenderer>().SetAlpha(0.2f);
         if (Application.platform == RuntimePlatform.WindowsPlayer)
         {
             platform = 1;
@@ -158,7 +158,7 @@ public class playerController : MonoBehaviour {
         }
         if (pickupCount >= 4)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             //winText.text = "You Win!";
         }
     }

@@ -20,6 +20,7 @@ public class setupScript : MonoBehaviour {
         //holesizeX = Random.Range(4,7);
         //holesizeY = Random.Range(4, 7);
         //holeProb = (holesizeX-2)/100+(holesizeY-2)/100+.9f;
+        xmapsize = 40; zmapsize = 40;
         Debug.Log(xmapsize); Debug.Log(zmapsize); 
         //holetype = Random.Range(0, 2);
         var finishpointY = new int[4];
