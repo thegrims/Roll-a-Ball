@@ -22,10 +22,10 @@ public class playerController : MonoBehaviour {
 
     void Start()
     {
-        star1.GetComponent<CanvasRenderer>().SetAlpha(0);
-        star2.GetComponent<CanvasRenderer>().SetAlpha(0);
-        star3.GetComponent<CanvasRenderer>().SetAlpha(0);
-        star4.GetComponent<CanvasRenderer>().SetAlpha(0);
+        star1.GetComponent<CanvasRenderer>().SetAlpha(0.15f);
+        star2.GetComponent<CanvasRenderer>().SetAlpha(0.15f);
+        star3.GetComponent<CanvasRenderer>().SetAlpha(0.15f);
+        star4.GetComponent<CanvasRenderer>().SetAlpha(0.15f);
         if (Application.platform == RuntimePlatform.WindowsPlayer)
         {
             platform = 1;
