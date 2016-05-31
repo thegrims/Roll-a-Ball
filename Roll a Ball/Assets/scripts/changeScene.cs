@@ -12,11 +12,6 @@ public class changeScene : MonoBehaviour {
         panel.GetComponent<CanvasRenderer>().SetAlpha(0);
             
     }
-    IEnumerator showTextFuntion()
-    {
-        //Application.LoadLevel("minigame2");
-        yield return new WaitForSeconds(3f);
-    }
     void Update()
     {
         if (frameCheck==true)
@@ -35,18 +30,15 @@ public class changeScene : MonoBehaviour {
     {
         Debug.Log(time);
         panel.transform.Translate(0, 2000, 1);
-        startGame();
-        StartCoroutine(showTextFuntion());
+
+        Color colorToFadeTo;
+        colorToFadeTo = new Color(1f, 1f, 1f, 1f);
+        panel.CrossFadeColor(colorToFadeTo, .9f, true, true);
+
+        //StartCoroutine(showTextFuntion());
         frameCheck = true;
         
 
 
-    }
-    void startGame()
-    {
-        Color colorToFadeTo;
-        colorToFadeTo = new Color(1f, 1f, 1f, 1f);
-        panel.CrossFadeColor(colorToFadeTo, .9f, true, true);
-        
     }
 }

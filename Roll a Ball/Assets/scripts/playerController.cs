@@ -7,7 +7,7 @@ public class playerController : MonoBehaviour {
     public float speed;
     public float jumpSpeed;
     public int pickupCount = 0;
-    private Rigidbody rb;
+    public Rigidbody rb;
     bool jumping = false;
     public Text countText;
     public Text timeText;
@@ -45,13 +45,6 @@ public class playerController : MonoBehaviour {
         timer -= Time.deltaTime; //Time.deltaTime will increase the value with 1 every second.
         timeText.text = Mathf.Round(timer).ToString();
         timeText2.text = Mathf.Round(timer).ToString();
-        if (Input.GetKeyDown("space") && jumping == false)
-        {
-            {
-                rb.AddForce(new Vector3(0, jumpSpeed, 0), ForceMode.Impulse);
-            }
-            jumping = true;
-        }
         
     }
     void FixedUpdate ()
@@ -62,8 +55,13 @@ public class playerController : MonoBehaviour {
 
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
         rb.AddForce(movement*speed);
-        
-
+        if (Input.GetKeyDown("space") && jumping == false)
+        {
+            {
+                rb.AddForce(new Vector3(0, jumpSpeed, 0), ForceMode.Impulse);
+            }
+            jumping = true;
+        }
     }
     void OnTriggerEnter(Collider other)
     {
