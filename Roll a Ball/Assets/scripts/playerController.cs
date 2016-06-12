@@ -17,7 +17,7 @@ public class playerController : MonoBehaviour {
     public Image star3;
     public Image star4;
     int platform = 0;
-    float timer = 30;
+    public float timer = 30;
     //public static bool winTrigger = false;
 
     void Start()

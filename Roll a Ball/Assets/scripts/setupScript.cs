@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using UnityEngine.UI;
 public class setupScript : MonoBehaviour {
     public Camera mainCam;
     public GameObject floorNode;
@@ -11,7 +11,10 @@ public class setupScript : MonoBehaviour {
     public int xmapsize, zmapsize;
     public float holesizeX, holesizeY;
     public float holeProb;
-   // int holetype;
+    public Image menuCanvas;
+    bool setupDone = false;
+    Color colorToFadeTo;
+    // int holetype;
     // Use this for initialization
     //do random cell generation and backtracking
     void Start ()
@@ -20,7 +23,7 @@ public class setupScript : MonoBehaviour {
         //holesizeX = Random.Range(4,7);
         //holesizeY = Random.Range(4, 7);
         //holeProb = (holesizeX-2)/100+(holesizeY-2)/100+.9f;
-        xmapsize = 20; zmapsize = 20;
+        //xmapsize = 20; zmapsize = 20;
         Debug.Log(xmapsize); Debug.Log(zmapsize); 
         //holetype = Random.Range(0, 2);
         var finishpointY = new int[4];
@@ -133,12 +136,22 @@ public class setupScript : MonoBehaviour {
         Instantiate(pickUp2, new Vector3(finishpointY[1]*5 - xmapsize / 2 - .5f, 0.5f, finishpointX[1]*5 - zmapsize / 2-.5f), Quaternion.identity);
         Instantiate(pickUp2, new Vector3(finishpointY[2]*5 - xmapsize / 2 - .5f, 0.5f, finishpointX[2]*5 - zmapsize / 2-.5f), Quaternion.identity);
         Instantiate(pickUp2, new Vector3(finishpointY[3]*5 - xmapsize / 2 - .5f, 0.5f, finishpointX[3]*5 - zmapsize / 2-.5f), Quaternion.identity);
+        //Color colorToFadeTo;
+        //colorToFadeTo = new Color(1f, 1f, 1f, 1f);
+        //menuCanvas.CrossFadeColor(colorToFadeTo, .9f, true, true);
+        setupDone = true;
     }
 	
 	// Update is called once per frame
-	void Update () {
-	
-	}
+	void Update ()
+    {
+        if (setupDone==true)
+        {
+            colorToFadeTo = new Color(1f, 0f, 1f, 0f);
+            menuCanvas.CrossFadeColor(colorToFadeTo, 1f, true, true);
+        }
+        
+    }
     void pickupPos(int z,int x, int[] finishpointX, int[] finishpointY)
     {
         if ((z + x) > (finishpointX[0] + finishpointY[0]))

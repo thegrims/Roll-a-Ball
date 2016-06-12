@@ -6,7 +6,8 @@ public class Transition : MonoBehaviour {
     public GameObject pauseMenu;
     public GameObject gameUI;
     public Text winLoss;
-    //public Image menuCanvas;
+    public Text restart;
+    public Image menuCanvas;
     bool setactive = false;
     // Use this for initialization
     void Start ()
@@ -19,11 +20,11 @@ public class Transition : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-	    //if (setactive==true)
+	    if (setactive==true)
         {
-            //Color colorToFadeTo;
-            //colorToFadeTo = new Color(1f, 1f, 1f, 1f);
-            //menuCanvas.CrossFadeColor(colorToFadeTo, .9f, true, true);
+            Color colorToFadeTo;
+            colorToFadeTo = new Color(1f, 1f, 1f, 1f);
+            menuCanvas.CrossFadeColor(colorToFadeTo, .9f, true, true);
         }
 	}
     void FixedUpdate()
@@ -33,6 +34,16 @@ public class Transition : MonoBehaviour {
             Player.GetComponent<playerController>().enabled = false;
             Player.GetComponent<playerController>().rb.velocity = new Vector3(0,0, 0);
             winLoss.text = "You Won";
+            restart.text = "Next Level";
+            pauseMenu.SetActive(true);
+            setactive = true;
+            gameUI.SetActive(false);
+        }
+        else if (Player.GetComponent<playerController>().timer <=0)
+        {
+            Player.GetComponent<playerController>().enabled = false;
+            Player.GetComponent<playerController>().rb.velocity = new Vector3(0, 0, 0);
+            winLoss.text = "Try Again";
             pauseMenu.SetActive(true);
             setactive = true;
             gameUI.SetActive(false);

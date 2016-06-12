@@ -14,6 +14,8 @@ namespace GreatArcStudios
     /// </summary>
     public class PauseManager : MonoBehaviour
     {
+        public GameObject Player;
+        public GameObject mapSetup;
         /// <summary>
         /// This is the main panel holder, which holds the main panel and should be called "main panel"
         /// </summary> 
@@ -340,7 +342,19 @@ namespace GreatArcStudios
         /// </summary>
         public void Restart()
         {
-            Application.LoadLevel(Application.loadedLevel);
+            if (Player.GetComponent<playerController>().pickupCount == 4)
+            {
+                Application.LoadLevel(Application.loadedLevel);
+                mapSetup.GetComponent<setupScript>().xmapsize += 20;
+                mapSetup.GetComponent<setupScript>().zmapsize += 20;
+            }
+            else
+            {
+                Application.LoadLevel(Application.loadedLevel);
+                mapSetup.GetComponent<setupScript>().xmapsize =20;
+                mapSetup.GetComponent<setupScript>().zmapsize =20;
+            }    
+            
             uiEventSystem.firstSelectedGameObject = defualtSelectedMain;
         }
         /// <summary>
